@@ -34,9 +34,13 @@ public interface ISection {
      */
     public long getSectionStartMemAddr();
     
+    
+    public String getSectionName();
     /**
      * Specifies if this section is the entry point section or not
      * @return 
      */
+    
+
     public boolean isEntryPoint();
 }
