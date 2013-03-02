@@ -19,12 +19,24 @@ package edu.syr.bytecast.amd64.api.output;
 
 import edu.syr.bytecast.amd64.api.instruction.IInstruction;
 import java.util.List;
+import java.util.Map;
 
 public interface ISection {
+    /**
+     * Returns a map of memory addresses and the instruction objects stored at that address
+     * @return 
+     */
+    public Map<Long,IInstruction> getAllInstructionObjects();
     
-    public List<IInstruction> getAllInstructionObjects();
-    
+    /**
+     * Returns the start address of the section. This would be the same as the first element of the map
+     * @return 
+     */
     public long getSectionStartMemAddr();
     
+    /**
+     * Specifies if this section is the entry point section or not
+     * @return 
+     */
     public boolean isEntryPoint();
 }

@@ -20,15 +20,14 @@ package edu.syr.bytecast.amd64.api.output;
 import java.util.List;
 
 public interface IExecutableFile {
-    
-    
+        
     public List<ISection> getAllSections();
     
     public String getFileName();
     
     public String getExecFileFormat();
     
+    //Will not be used for the 1st spiral
     public List<IExecutableFile> getAllDependantFiles();
-    
     
 }
