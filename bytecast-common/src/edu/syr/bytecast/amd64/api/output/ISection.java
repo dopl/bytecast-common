@@ -26,5 +26,7 @@ public interface ISection {
     
     public long getSectionStartMemAddr();
     
+    public String getSectionName();
+    
     public boolean isEntryPoint();
 }
