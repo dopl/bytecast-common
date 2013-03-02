@@ -44,4 +44,24 @@ public class OperandTypeMemoryEffectiveAddress {
   public int getOffset() {
     return m_offset;
   }
+  
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof OperandTypeMemoryEffectiveAddress)) {
+            return false;
+        }
+        OperandTypeMemoryEffectiveAddress param = (OperandTypeMemoryEffectiveAddress) obj;
+        return this.m_base == param.m_base && this.m_index == param.m_index && this.m_offset == param.m_offset && this.m_scale == param.m_scale;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + (this.m_base != null ? this.m_base.hashCode() : 0);
+        hash = 37 * hash + (this.m_index != null ? this.m_index.hashCode() : 0);
+        hash = 37 * hash + this.m_scale;
+        hash = 37 * hash + this.m_offset;
+        return hash;
+    }
+
 }
