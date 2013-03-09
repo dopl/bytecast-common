@@ -30,19 +30,9 @@ public class ExeObjIOUtils {
             System.out.println("Label:  " + segs.get(i).getLabel());
             System.out.printf("StartAddress:  %016x\n", segs.get(i).getStartAddress());
             System.out.printf("Number of Bytes:  %016x\n\n", segs.get(i).getBytes().size());
-        }        
-         printExeObjFunction(obj.getFunctions());
+        }         
     }
-    public static void printExeObjFunction(List<ExeObjFunction> obj){
-
-        System.out.println("::Fucntion Data::");
-        for(int i = 0; i < obj.size(); i++)
-        {
-            System.out.println("Name:  " + obj.get(i).getName());
-            System.out.printf("StartAddress:  %016x\n", obj.get(i).getStartAddress());
-            System.out.printf("Size:  %016x\n\n", obj.get(i).getSize()); 
-        }
-    }   
+    
     public static void writeToFile(ExeObj obj, String file_name) throws IOException
     {
         FileOutputStream fos = null;
