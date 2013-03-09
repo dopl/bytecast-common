@@ -17,20 +17,20 @@
  */
 
 package edu.syr.bytecast.test.fsys;
-package edu.syr.bytecast.test.mockups;
 
 import edu.syr.bytecast.interfaces.fsys.ExeObj;
 import edu.syr.bytecast.interfaces.fsys.IBytecastFsys;
 import edu.syr.bytecast.test.ITestCase;
-import edu.syr.bytecas
+import edu.syr.bytecast.test.mockups.MockBytecastFsys;
+
 public class FSysBasicTest implements ITestCase {
 
   @Override
   public boolean test() {
       
-    IBytecastFsys fsys = null; //get from somewhere (product/mock)
+    IBytecastFsys fsys = new MockBytecastFsys(); //get from somewhere (product/mock)
     
-    ExeObj exe_obj = fsys.parse();
+
     
     
     return false;
