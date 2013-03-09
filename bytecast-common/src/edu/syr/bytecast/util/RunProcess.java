@@ -37,60 +37,18 @@ public class RunProcess {
     return p.waitFor();
   }
   
+  public int exec(String command, String[] env, File start_dir) throws IOException, InterruptedException {
+    Process p = Runtime.getRuntime().exec(command, env, start_dir);
+    m_stdout = new StreamEater(p.getInputStream());
+    m_stderr = new StreamEater(p.getErrorStream());
+    return p.waitFor();
+  }
+  
   public List<String> getOutput(){
     return m_stdout.getLines();
   }
   
   public List<String> getError(){
     return m_stderr.getLines();
-  }
-  
-  private class StreamEater implements Runnable {
-   
-    private BufferedReader m_reader;
-    private List<String> m_lines;
-    private volatile boolean m_done;
-    
-    public StreamEater(InputStream stream) {
-      m_reader = new BufferedReader(new InputStreamReader(stream));
-      m_lines = new ArrayList<String>();
-      m_done = false;
-      Thread thread = new Thread(this);
-      thread.setDaemon(true);
-      thread.start();
-    }
-  
-    @Override
-    public void run(){
-      while(true){
-        try {
-          String line = m_reader.readLine(); 
-          if(line == null){
-            break;
-          }
-          m_lines.add(line);
-        } catch(Exception ex){
-          ex.printStackTrace(System.out);
-          System.exit(0);
-        }
-      }
-      try {
-        m_reader.close();
-      } catch(Exception ex){
-        ex.printStackTrace();
-      }
-      m_done = true;
-    }
-    
-    public List<String> getLines(){
-      while(m_done == false){
-        try {
-          Thread.sleep(100);
-        } catch(Exception ex){
-          ex.printStackTrace();
-        }
-      }
-      return m_lines;
-    }
   }
 }
