@@ -40,26 +40,26 @@ public abstract class AbstractFilter {
   }
   
   public void scan(List<IInstruction> unparsed_inst_list, List<ParsedInstructionsSet> parsed_inst_list, IFilter filter){//, String type, int count) {
-      int unparsed_list_size = unparsed_inst_list.size();
-      int count = getInst_Count();
-      String type = getFilter_Name();
-      for(int j=0;j<unparsed_list_size;j++){
-        if(filter.doTest(unparsed_inst_list, j)){
-          ParsedInstructionsSet pis= new ParsedInstructionsSet();
-          List<IInstruction> inst_list = new ArrayList<IInstruction>();
-          for(int k = j; k < j+count; k++)
-            inst_list.add(unparsed_inst_list.get(k));
-          
-          JInstructionInfo jinfo = new  JInstructionInfo();
-          jinfo.setInstruction_Name(type);
-          jinfo.setInstructions_Count(count);
-          jinfo.setStart_Index(j);
-          pis.setInfo(jinfo);
-          pis.setInstructions_List(inst_list);
-          parsed_inst_list.add(pis);
-          j = j + count;
-          j--;
-        }
-      }
+//      int unparsed_list_size = unparsed_inst_list.size();
+//      int count = getInst_Count();
+//      String type = getFilter_Name();
+//      for(int j=0;j<unparsed_list_size;j++){
+//        if(filter.doTest(unparsed_inst_list, j)){
+//          ParsedInstructionsSet pis= new ParsedInstructionsSet();
+//          List<IInstruction> inst_list = new ArrayList<IInstruction>();
+//          for(int k = j; k < j+count; k++)
+//            inst_list.add(unparsed_inst_list.get(k));
+//          
+//          JInstructionInfo jinfo = new  JInstructionInfo();
+//          jinfo.setInstruction_Name(type);
+//          jinfo.setInstructions_Count(count);
+//          jinfo.setStart_Index(j);
+//          pis.setInfo(jinfo);
+//          pis.setInstructions_List(inst_list);
+//          parsed_inst_list.add(pis);
+//          j = j + count;
+//          j--;
+//        }
+//      }
     }
 }

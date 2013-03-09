@@ -5,7 +5,8 @@ import java.io.File;
 public class Paths {
     
     private static Paths m_instance;
-    private static final String m_fsysMock1Path = "bytecast-common/bytecast-common/test_input_files/fsys_mock1.eobj";
+    private static final String m_fsysMock1Path         = "bytecast-common/bytecast-common/test_input_files/fsys_mock1.eobj";
+    private static final String m_fsysBasicTestElfFile  = "bytecast-documents/AsciiManip01Prototype/a.out";
     private String m_root;
     public static synchronized Paths v(){
         if(m_instance == null){
@@ -20,6 +21,11 @@ public class Paths {
         m_root = new_file.getAbsolutePath();
     }
     
+    public void parsePathsFile(String paths_file) throws Exception
+    {
+        
+    }
+    
     public String getRoot()
     {
         return m_root;
@@ -28,6 +34,11 @@ public class Paths {
     public String getFsysMock1Path()
     {
         return m_root + "/" + m_fsysMock1Path;
+    }
+    
+    public String getFsysBasicTestPath()
+    {
+        return m_root + "/" + m_fsysBasicTestElfFile;
     }
     
 }
