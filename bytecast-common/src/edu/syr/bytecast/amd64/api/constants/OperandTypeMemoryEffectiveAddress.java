@@ -57,11 +57,12 @@ public class OperandTypeMemoryEffectiveAddress {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + (this.m_base != null ? this.m_base.hashCode() : 0);
-        hash = 37 * hash + (this.m_index != null ? this.m_index.hashCode() : 0);
-        hash = 37 * hash + this.m_scale;
-        hash = 37 * hash + this.m_offset;
+        hash = 79 * hash + (this.m_base != null ? this.m_base.hashCode() : 0);
+        hash = 79 * hash + (this.m_index != null ? this.m_index.hashCode() : 0);
+        hash = 79 * hash + this.m_scale;
+        hash = 79 * hash + (int) (this.m_offset ^ (this.m_offset >>> 32));
         return hash;
     }
+
 
 }

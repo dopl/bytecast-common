@@ -23,7 +23,7 @@ public class OperandTypeMemoryLogicalAddress {
     this.m_effectiveAddress = effectiveAddress;
   }
 
-  public OperandTypeMemoryLogicalAddress(RegisterType segment, RegisterType base, RegisterType index, int scale, int offset) {
+  public OperandTypeMemoryLogicalAddress(RegisterType segment, RegisterType base, RegisterType index, int scale, long offset) {
     this.m_segment = segment;
     this.m_effectiveAddress = new OperandTypeMemoryEffectiveAddress(base, index, scale, offset);
   }
