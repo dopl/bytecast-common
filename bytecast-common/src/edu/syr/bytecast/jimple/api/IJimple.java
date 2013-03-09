@@ -4,14 +4,16 @@
  */
 package edu.syr.bytecast.jimple.api;
 
-import edu.syr.bytecast.amd64.api.instruction.IInstruction;
-import java.util.List;
-import edu.syr.bytecast.jimple.beans.ParsedInstructionsSet;
+
+import edu.syr.bytecast.amd64.api.output.IExecutableFile;
+
+
 /**
  *
  * @author QSA
  */
 public interface IJimple {
-  void createJimple(List<IInstruction> inst_List, 
-            List<ParsedInstructionsSet> parsed_List);
+    //this is the prime function for client
+    boolean createJimple(IExecutableFile exe_file);
 }
+

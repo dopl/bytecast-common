@@ -74,6 +74,11 @@ public class RunProcess {
           System.exit(0);
         }
       }
+      try {
+        m_reader.close();
+      } catch(Exception ex){
+        ex.printStackTrace();
+      }
       m_done = true;
     }
     
@@ -82,7 +87,7 @@ public class RunProcess {
         try {
           Thread.sleep(100);
         } catch(Exception ex){
-          //ignore
+          ex.printStackTrace();
         }
       }
       return m_lines;
