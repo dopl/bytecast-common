@@ -13,7 +13,7 @@ public class OperandTypeMemoryEffectiveAddress {
   private RegisterType m_base;
   private RegisterType m_index;
   private int m_scale;
-  private int m_offset;
+  private long m_offset;
 
   /**
    *
@@ -22,7 +22,7 @@ public class OperandTypeMemoryEffectiveAddress {
    * @param scale
    * @param offset
    */
-  public OperandTypeMemoryEffectiveAddress(RegisterType base, RegisterType index, int scale, int offset) {
+  public OperandTypeMemoryEffectiveAddress(RegisterType base, RegisterType index, int scale, long offset) {
     this.m_base = base;
     this.m_index = index;
     this.m_scale = scale;
@@ -41,7 +41,7 @@ public class OperandTypeMemoryEffectiveAddress {
     return m_scale;
   }
 
-  public int getOffset() {
+  public long getOffset() {
     return m_offset;
   }
 }
