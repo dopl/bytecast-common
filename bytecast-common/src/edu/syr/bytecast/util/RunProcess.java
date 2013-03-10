@@ -45,10 +45,22 @@ public class RunProcess {
   }
   
   public List<String> getOutput(){
-    return m_stdout.getLines();
+    String str = m_stdout.getString();
+    return split(str);
   }
   
   public List<String> getError(){
-    return m_stderr.getLines();
+    String str = m_stdout.getString();
+    return split(str);
+  }
+
+  private List<String> split(String str) {
+    //http://stackoverflow.com/questions/454908/split-java-string-by-new-line
+    String lines[] = str.split("\\r?\\n");
+    List<String> ret = new ArrayList<String>();
+    for(String line : lines){
+      ret.add(line);
+    }
+    return ret;
   }
 }

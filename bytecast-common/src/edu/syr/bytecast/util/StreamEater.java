@@ -23,17 +23,28 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.io.IOUtils;
 
 public class StreamEater implements Runnable {
    
-  private BufferedReader m_reader;
-  private List<String> m_lines;
+  private InputStream m_inputStream;
+  private String m_string;
   private volatile boolean m_done;
+  private boolean m_print;
 
   public StreamEater(InputStream stream) {
-    m_reader = new BufferedReader(new InputStreamReader(stream));
-    m_lines = new ArrayList<String>();
+    m_inputStream = stream;
     m_done = false;
+    m_print = false;
+    Thread thread = new Thread(this);
+    thread.setDaemon(true);
+    thread.start();
+  }
+  
+  public StreamEater(InputStream stream, boolean print) {
+    m_inputStream = stream;
+    m_done = false;
+    m_print = print;
     Thread thread = new Thread(this);
     thread.setDaemon(true);
     thread.start();
@@ -41,27 +52,15 @@ public class StreamEater implements Runnable {
 
   @Override
   public void run(){
-    while(true){
-      try {
-        String line = m_reader.readLine(); 
-        if(line == null){
-          break;
-        }
-        m_lines.add(line);
-      } catch(Exception ex){
-        ex.printStackTrace(System.out);
-        System.exit(0);
-      }
-    }
     try {
-      m_reader.close();
+      m_string = IOUtils.toString(m_inputStream, "UTF-8");
     } catch(Exception ex){
       ex.printStackTrace();
     }
     m_done = true;
   }
 
-  public List<String> getLines(){
+  public String getString(){
     while(m_done == false){
       try {
         Thread.sleep(100);
@@ -69,6 +68,6 @@ public class StreamEater implements Runnable {
         ex.printStackTrace();
       }
     }
-    return m_lines;
+    return m_string;
   }
 }
