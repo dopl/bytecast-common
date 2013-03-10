@@ -54,6 +54,7 @@ public class StreamEater implements Runnable {
   public void run(){
     try {
       m_string = IOUtils.toString(m_inputStream, "UTF-8");
+      m_inputStream.close();
     } catch(Exception ex){
       ex.printStackTrace();
     }
