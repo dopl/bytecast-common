@@ -39,7 +39,7 @@ public class MockBytecastFsys implements IBytecastFsys {
 
   @Override
   public ExeObj parse() throws Exception {
-    String path = Paths.v().getFsysMock1Path();
+    String path = Paths.v().getPath("BYTECAST_MOCKUPS_FSYS_MOCK1_FILE");
     ExeObj ret = ExeObjIOUtils.readFromFile(path);
     return ret;
   }  
