@@ -32,7 +32,6 @@ public class Paths {
     public static synchronized Paths v(){
         if(m_instance == null){
             m_instance = new Paths();
-            m_paths = new TreeMap<String,String>();
         }
         return m_instance;
         
@@ -62,6 +61,7 @@ public class Paths {
     public void parsePathsFile(String paths_file) throws Exception
     {
         BufferedReader br = null;
+        m_paths = new TreeMap<String,String>();
         
         try {
             String current_line;
@@ -76,6 +76,12 @@ public class Paths {
         catch (Exception e){
             System.out.println(e.getMessage());
         }
+    }
+    
+    //Parses the paths file from the default location.    
+    public void parsePathsFile() throws Exception
+    {
+        parsePathsFile("bytecast-common/bytecast-common/cfg/paths.cfg");
     }
     
     //Parses a single configuration line
