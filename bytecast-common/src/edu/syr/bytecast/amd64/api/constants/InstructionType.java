@@ -29,6 +29,8 @@ public enum InstructionType {
     HLT,
     RET,
     MOV,
+    MOVSX,
+    MOVZX,
     NOP,
     POP,
     PUSH,
