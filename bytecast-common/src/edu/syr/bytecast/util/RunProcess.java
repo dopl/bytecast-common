@@ -50,7 +50,7 @@ public class RunProcess {
   }
   
   public List<String> getError(){
-    String str = m_stdout.getString();
+    String str = m_stderr.getString();
     return split(str);
   }
 

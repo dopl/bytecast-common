@@ -52,12 +52,25 @@ public class StreamEater implements Runnable {
 
   @Override
   public void run(){
+    StringBuilder builder = new StringBuilder();
     try {
-      m_string = IOUtils.toString(m_inputStream, "UTF-8");
-      m_inputStream.close();
+      BufferedReader reader = new BufferedReader(new InputStreamReader(m_inputStream));
+      while(true){
+        String line = reader.readLine();
+        if(line == null){
+          break;
+        }
+        if(m_print){
+          System.out.println(line);
+        }
+        builder.append(line);
+        builder.append("\n");
+      }
+      reader.close();
     } catch(Exception ex){
       ex.printStackTrace();
     }
+    m_string = builder.toString();
     m_done = true;
   }
 
