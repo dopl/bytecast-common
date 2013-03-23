@@ -17,14 +17,15 @@
  */
 package edu.syr.bytecast.amd64.api.output;
 
-import edu.syr.bytecast.amd64.api.instruction.IInstruction;
-import java.util.Map;
+import java.util.List;
 
 public interface ISection {
     
-    public Map<Long,IInstruction> getAllInstructionObjects();
+    public List<MemoryInstructionPair> getAllInstructionObjects();
     
     public long getSectionStartMemAddr();
+    
+    public int indexOfInstructionAt(Long memoryAddress);
     
     public boolean isEntryPoint();
     
