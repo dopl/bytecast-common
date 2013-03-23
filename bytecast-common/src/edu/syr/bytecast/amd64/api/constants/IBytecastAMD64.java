@@ -14,6 +14,6 @@ import edu.syr.bytecast.interfaces.fsys.IBytecastFsys;
  */
 public interface IBytecastAMD64 {
 
-    IExecutableFile buildInstructionObjects(String execFilePath, IBytecastFsys fsys);
+    IExecutableFile buildInstructionObjects();
     
 }
