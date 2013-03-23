@@ -17,12 +17,25 @@
  */
 package edu.syr.bytecast.amd64.api.output;
 
+import edu.syr.bytecast.interfaces.fsys.ExeObjSegment;
 import java.util.List;
 
 public interface IExecutableFile {
     
+    /**
+     * Gets the Sections which have assembly instructions. These ISection objects contain
+     * functions to fetch IInstruction Objects and their memory location
+     * @return 
+     */
+    public List<ISection> getSectionsWithInstructions();
     
-    public List<ISection> getAllSections();
+    /**
+     * Gets the Sections in their raw form which have been the output of Fsys. This exists here because
+     * there may be sections like ".rodata" which do contain bytes but they represent
+     * data and not any instruction. Jimple might need this data to resolve Constants like Strings and numbers etc.
+     * @return 
+     */
+    public List<ExeObjSegment> getSectionsWithRawData();
     
     public String getFileName();
     
