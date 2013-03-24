@@ -28,5 +28,4 @@ public interface IInstruction {
 
   public InstructionType getInstructiontype();
 
-  public long getInstructionMemoryAddress();
 }
