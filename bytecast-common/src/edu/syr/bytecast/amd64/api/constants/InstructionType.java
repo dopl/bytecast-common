@@ -215,7 +215,8 @@ public enum InstructionType {
    CLI, 
    CLD, 
    STD,
+   MOVZX,
    MOVSX,
-   MOVZX
 
+   
 }
