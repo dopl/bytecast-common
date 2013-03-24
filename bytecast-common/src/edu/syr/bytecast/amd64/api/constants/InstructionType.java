@@ -216,9 +216,7 @@ public enum InstructionType {
    STC, 
    CLI, 
    CLD, 
-   STD,
-   MOVZX,
-   MOVSX,
+   STD
 
    
 }
