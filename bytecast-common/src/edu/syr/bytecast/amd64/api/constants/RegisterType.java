@@ -24,8 +24,8 @@ package edu.syr.bytecast.amd64.api.constants;
 public enum RegisterType {
 
   /**
-   * General Register
-   */
+  * General Register
+  */
   AH,
   BH,
   CH,
@@ -101,12 +101,32 @@ public enum RegisterType {
   EIP,
   IP,
   /**
-   * Segment Register
-   */
+  * Segment Register
+  */
   CS,
   DS,
   ES,
   FS,
   GS,
   SS,
+  
+  /*Error Flags*/
+  CF,
+  PF,
+  AF,
+  ZF,
+  SF,
+  TF,
+  IF,
+  OF,
+  IOPL,
+  NT,
+  RF,
+  VM,
+  AC,
+  VIF,
+  VIP,
+  ID
+  
+
 }
