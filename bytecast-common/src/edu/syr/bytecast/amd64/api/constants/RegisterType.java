@@ -118,6 +118,7 @@ public enum RegisterType {
   SF,
   TF,
   IF,
+  DF,
   OF,
   IOPL,
   NT,
@@ -127,6 +128,5 @@ public enum RegisterType {
   VIF,
   VIP,
   ID
-  
 
 }
