@@ -14,8 +14,7 @@ import java.util.List;
 public class ParsedInstructionsSet {
     private List<MemoryInstructionPair> instructions_List;
     private JInstructionInfo info;
-    
-    public List getInstructions_List()
+    public List<MemoryInstructionPair> getInstructions_List()
     {
         return this.instructions_List;
     }
