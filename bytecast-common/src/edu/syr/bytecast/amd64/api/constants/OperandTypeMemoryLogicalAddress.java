@@ -35,25 +35,32 @@ public class OperandTypeMemoryLogicalAddress {
   public RegisterType getSegment() {
     return m_segment;
   }
-  
-    @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof OperandTypeMemoryLogicalAddress)) {
-            return false;
-        }
-        OperandTypeMemoryLogicalAddress param = (OperandTypeMemoryLogicalAddress) obj;
-        if (this.m_effectiveAddress == null) {
-            return param.m_effectiveAddress == null && this.m_segment == param.m_segment;
-        } else {
-            return this.m_effectiveAddress.equals(param.m_effectiveAddress) && this.m_segment == param.m_segment;
-        }
-    }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 23 * hash + (this.m_segment != null ? this.m_segment.hashCode() : 0);
-        hash = 23 * hash + (this.m_effectiveAddress != null ? this.m_effectiveAddress.hashCode() : 0);
+        int hash = 7;
+        hash = 43 * hash + (this.m_segment != null ? this.m_segment.hashCode() : 0);
+        hash = 43 * hash + (this.m_effectiveAddress != null ? this.m_effectiveAddress.hashCode() : 0);
         return hash;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final OperandTypeMemoryLogicalAddress other = (OperandTypeMemoryLogicalAddress) obj;
+        if (this.m_segment != other.m_segment) {
+            return false;
+        }
+        if (this.m_effectiveAddress != other.m_effectiveAddress && (this.m_effectiveAddress == null || !this.m_effectiveAddress.equals(other.m_effectiveAddress))) {
+            return false;
+        }
+        return true;
+    }
+  
+
 }
