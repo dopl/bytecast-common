@@ -4,7 +4,7 @@
  */
 package edu.syr.bytecast.jimple.beans;
 
-import edu.syr.bytecast.amd64.api.instruction.IInstruction;
+import edu.syr.bytecast.amd64.api.output.MemoryInstructionPair;
 import java.util.List;
 
 /**
@@ -12,7 +12,7 @@ import java.util.List;
  * @author QSA
  */
 public class ParsedInstructionsSet {
-    private List<IInstruction> instructions_List;
+    private List<MemoryInstructionPair> instructions_List;
     private JInstructionInfo info;
     
     public List getInstructions_List()
@@ -25,7 +25,7 @@ public class ParsedInstructionsSet {
         return this.info;
     }
     
-    public void setInstructions_List(List<IInstruction> list)
+    public void setInstructions_List(List<MemoryInstructionPair> list)
     {
         this.instructions_List= list;
     }
@@ -36,3 +36,4 @@ public class ParsedInstructionsSet {
     }
     
 }
+
