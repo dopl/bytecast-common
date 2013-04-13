@@ -44,25 +44,41 @@ public class OperandTypeMemoryEffectiveAddress {
   public long getOffset() {
     return m_offset;
   }
-  
-    @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof OperandTypeMemoryEffectiveAddress)) {
-            return false;
-        }
-        OperandTypeMemoryEffectiveAddress param = (OperandTypeMemoryEffectiveAddress) obj;
-        return this.m_base == param.m_base && this.m_index == param.m_index && this.m_offset == param.m_offset && this.m_scale == param.m_scale;
-    }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + (this.m_base != null ? this.m_base.hashCode() : 0);
-        hash = 79 * hash + (this.m_index != null ? this.m_index.hashCode() : 0);
-        hash = 79 * hash + this.m_scale;
-        hash = 79 * hash + (int) (this.m_offset ^ (this.m_offset >>> 32));
+        int hash = 5;
+        hash = 29 * hash + (this.m_base != null ? this.m_base.hashCode() : 0);
+        hash = 29 * hash + (this.m_index != null ? this.m_index.hashCode() : 0);
+        hash = 29 * hash + this.m_scale;
+        hash = 29 * hash + (int) (this.m_offset ^ (this.m_offset >>> 32));
         return hash;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final OperandTypeMemoryEffectiveAddress other = (OperandTypeMemoryEffectiveAddress) obj;
+        if (this.m_base != other.m_base) {
+            return false;
+        }
+        if (this.m_index != other.m_index) {
+            return false;
+        }
+        if (this.m_scale != other.m_scale) {
+            return false;
+        }
+        if (this.m_offset != other.m_offset) {
+            return false;
+        }
+        return true;
+    }
+  
 
 
 }

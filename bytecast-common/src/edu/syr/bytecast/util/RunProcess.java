@@ -24,6 +24,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class RunProcess {
   
@@ -31,7 +32,7 @@ public class RunProcess {
   private StreamEater m_stderr;
   
   public int exec(String command, File start_dir) throws IOException, InterruptedException {
-    Process p = Runtime.getRuntime().exec(command, new String[0], start_dir);
+    Process p = Runtime.getRuntime().exec(command, getEnv(), start_dir);
     m_stdout = new StreamEater(p.getInputStream());
     m_stderr = new StreamEater(p.getErrorStream());
     return p.waitFor();
@@ -42,6 +43,18 @@ public class RunProcess {
     m_stdout = new StreamEater(p.getInputStream());
     m_stderr = new StreamEater(p.getErrorStream());
     return p.waitFor();
+  }
+  
+  private String[] getEnv() {
+    Map<String, String> env_map = System.getenv();
+    String[] ret = new String[env_map.size()];
+    int index = 0;
+    for(String key : env_map.keySet()){
+      String value = env_map.get(key);
+      ret[index] = key+"="+value;
+      ++index;
+    }
+    return ret;
   }
   
   public List<String> getOutput(){

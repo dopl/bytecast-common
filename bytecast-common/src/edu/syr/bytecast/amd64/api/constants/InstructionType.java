@@ -219,4 +219,4 @@ public enum InstructionType {
    STD
 
    
-}
+,   ROL, RCL, SAL,RCR}
