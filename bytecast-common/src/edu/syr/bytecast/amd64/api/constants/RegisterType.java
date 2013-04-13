@@ -108,5 +108,5 @@ public enum RegisterType {
   ES,
   FS,
   GS,
-  SS,
+  SS, 
 }
