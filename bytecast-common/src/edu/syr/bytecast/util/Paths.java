@@ -21,7 +21,10 @@ package edu.syr.bytecast.util;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Paths {
     
@@ -41,8 +44,12 @@ public class Paths {
     //Set the root directory of Bytecast.
     public void setRoot(String root_dir)
     {
-        File new_file = new File(root_dir);
-        m_root = new_file.getAbsolutePath();
+        try {
+            File new_file = new File(root_dir);
+            m_root = new_file.getCanonicalPath();
+        } catch (IOException ex) {
+            Logger.getLogger(Paths.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     //
