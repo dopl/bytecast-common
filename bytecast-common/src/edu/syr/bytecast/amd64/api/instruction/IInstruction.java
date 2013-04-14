@@ -24,7 +24,7 @@ public interface IInstruction {
 
   public List<IOperand> getOperands();
 
-  //public String getOpCode();
+  public List<Byte> getBytes();
 
   public InstructionType getInstructiontype();
 
