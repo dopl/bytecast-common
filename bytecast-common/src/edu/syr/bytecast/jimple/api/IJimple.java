@@ -6,15 +6,12 @@ package edu.syr.bytecast.jimple.api;
 
 
 import edu.syr.bytecast.amd64.api.constants.IBytecastAMD64;
-import edu.syr.bytecast.amd64.api.output.IExecutableFile;
-
-
 /**
  *
  * @author QSA
  */
 public interface IJimple {
     //this is the prime function for client
-    boolean createJimple(IExecutableFile exe_file);
+    boolean createJimple(IBytecastAMD64 amd64Object, String fileName);
 }
 
