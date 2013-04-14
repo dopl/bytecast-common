@@ -24,7 +24,7 @@ public interface IInstruction {
 
   public List<IOperand> getOperands();
 
-  public String getOpCode();
+  //public String getOpCode();
 
   public InstructionType getInstructiontype();
 
