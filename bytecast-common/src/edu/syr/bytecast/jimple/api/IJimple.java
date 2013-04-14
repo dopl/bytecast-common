@@ -15,6 +15,6 @@ import edu.syr.bytecast.amd64.api.output.IExecutableFile;
  */
 public interface IJimple {
     //this is the prime function for client
-    boolean createJimple(IExecutableFile exe_file);
+    boolean createJimple(IExecutableFile exe_file, String fileName);
 }
 
