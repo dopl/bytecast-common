@@ -12,6 +12,15 @@ import edu.syr.bytecast.amd64.api.constants.IBytecastAMD64;
  */
 public interface IJimple {
     //this is the prime function for client
-    boolean createJimple(IBytecastAMD64 amd64Object, String fileName);
+    /**
+     * 
+     * @param amd64Object
+     * @param fileName
+     * @param outputFormat
+     *          jimple
+     *          class
+     * @return 
+     */
+    boolean createJimple(IBytecastAMD64 amd64Object, String fileName, String outputFormat);
 }
 
